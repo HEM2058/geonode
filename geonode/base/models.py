@@ -777,6 +777,13 @@ class ResourceBase(PolymorphicModel, PermissionLevelMixin, ItemBase):
     extra_metadata_help_text = _(
         'Additional metadata, must be in format [ {"metadata_key": "metadata_value"}, {"metadata_key": "metadata_value"} ]')
     # internal fields
+    
+    custom_md_help_text = _('a custom metadata field')
+    custom_md = models.TextField(
+        _("Custom Md"),
+        blank=True,
+        null=True,
+        help_text=custom_md_help_text)
     uuid = models.CharField(max_length=36, unique=True, default=uuid.uuid4)
     title = models.CharField(_('title'), max_length=255, help_text=_(
         'name by which the cited resource is known'))
